@@ -3,6 +3,7 @@ import { Route,Switch} from "react-router-dom/cjs/react-router-dom";
 import "./App.css";
 
 import Login from "./pages/Login";
+import Welcome from "./pages/Welcome";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <Switch>
       <Route path="/" exact>
           <Login />
+        </Route>
+      <Route path="/welcome" exact>
+        <Welcome/>
         </Route>
       </Switch>
       

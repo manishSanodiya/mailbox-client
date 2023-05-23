@@ -3,6 +3,7 @@ import classes from "./auth.module.css";
  import { useSelector,useDispatch } from "react-redux";
 // import { loginActions } from "../store/loginSlice";
 import { loginActions } from "../store/loginSlice";
+import {useHistory} from 'react-router-dom'
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -11,6 +12,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const Login = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  let history = useHistory();
 
 
 const dispatch = useDispatch()
@@ -53,6 +55,8 @@ const isLoggedIn = useSelector((state) => state.login.isloggedIn);
      
       if (res.ok) {
         return res.json()
+       
+
       } else {
         return res.json().then((data) => {
           let errorMessage = "Authentication failed!";
@@ -63,7 +67,7 @@ const isLoggedIn = useSelector((state) => state.login.isloggedIn);
       }
     }).then(data =>{
       console.log(data);
-    
+      history.push("/welcome");
       localStorage.setItem("idToken", JSON.stringify(data.idToken));
       localStorage.setItem("data", JSON.stringify(data));
       setIsLogin(true);
