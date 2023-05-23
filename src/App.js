@@ -4,6 +4,7 @@ import "./App.css";
 
 import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
+import ComposeMail from "./component/ComposeMail";
 
 function App() {
   return (
@@ -15,7 +16,11 @@ function App() {
       <Route path="/welcome" exact>
         <Welcome/>
         </Route>
+      <Route path="/compose" exact>
+        <ComposeMail/>
+        </Route>
       </Switch>
+      
       
         
     
