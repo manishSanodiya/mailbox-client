@@ -5,11 +5,13 @@ import "./App.css";
 import Login from "./pages/Login";
 import Welcome from "./pages/Welcome";
 import ComposeMail from "./component/ComposeMail";
+import Layout from "./component/Layout";
 
 function App() {
   return (
     <>
-      <Switch>
+    <Layout>
+    <Switch>
       <Route path="/" exact>
           <Login />
         </Route>
@@ -20,6 +22,8 @@ function App() {
         <ComposeMail/>
         </Route>
       </Switch>
+    </Layout>
+      
       
       
         
