@@ -4,6 +4,7 @@ import classes from "./auth.module.css";
 // import { loginActions } from "../store/loginSlice";
 import { loginActions } from "../store/loginSlice";
 import {useHistory} from 'react-router-dom'
+import { mailActions } from "../store/mail-slice";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -16,7 +17,7 @@ const Login = () => {
 
 
 const dispatch = useDispatch()
-const isLoggedIn = useSelector((state) => state.login.isloggedIn);
+// const isLoggedIn = useSelector((state) => state.login.isloggedIn);
  
 
   const [isLogin, setIsLogin] = useState(true);
@@ -66,12 +67,14 @@ const isLoggedIn = useSelector((state) => state.login.isloggedIn);
         });
       }
     }).then(data =>{
-      console.log(data);
-      history.push("/welcome");
+      // console.log(data);
+      history.push("/home");
       localStorage.setItem("idToken", JSON.stringify(data.idToken));
       localStorage.setItem("data", JSON.stringify(data));
-      setIsLogin(true);
+   
+     
       dispatch(loginActions.login());
+      dispatch(mailActions.firstTime(true));
 
     })
 

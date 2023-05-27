@@ -46,3 +46,10 @@
     border-radius: 5px;
     background-color: rgb(58, 41, 134);
   }
+  .sidenav{
+    background-color: rgb(194, 192, 224);
+    color: rgb(35, 138, 197);
+    padding: 1rem;
+    margin: 1rem;
+    font-size: larger;
+  }
