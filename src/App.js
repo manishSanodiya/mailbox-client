@@ -7,14 +7,14 @@ import ComposeMail from "./component/ComposeMail";
 import Layout from "./component/Layout";
 import Received from "./component/Received";
 
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Sent from "./component/Sent";
 import Home from "./pages/Home";
 
 function App() {
 
-  // const isLoggedIn = useSelector((state) => state.login.isloggedIn);
+  const isLoggedIn = useSelector((state) => state.login.isloggedIn);
 
 
   return (
@@ -25,20 +25,25 @@ function App() {
             <Login />
           </Route>
           <Route path="/welcome" exact>
-            <Welcome />
+           {isLoggedIn && <Welcome />}
+           {!isLoggedIn && <Login />}
           </Route>
 
           <Route path="/in" exact>
-            <Received />
+           {isLoggedIn && <Received />}
+            {!isLoggedIn && <Login />}
           </Route>
           <Route path="/out" exact>
-            <Sent />
+           {isLoggedIn &&  <Sent />}
+            {!isLoggedIn && <Login />}
           </Route>
           <Route path="/compose" exact>
-            <ComposeMail />
+            {isLoggedIn && <ComposeMail />}
+            {!isLoggedIn && <Login />}
           </Route>
           <Route path="/home" exact>
-           <Home/>
+           {isLoggedIn && <Home/>}
+           {!isLoggedIn && <Login />}
           </Route>
         
         </Switch>

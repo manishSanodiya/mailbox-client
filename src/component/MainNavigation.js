@@ -35,9 +35,9 @@ const MainNavigation = () => {
         <ul>
           <li>
           <>
- <Button variant="primary" onClick={handleShow} className="me-2">
+{isLoggedIn && <Button variant="primary" onClick={handleShow} className="me-2">
        Menu
-      </Button>
+      </Button>}
       <Offcanvas show={show} onHide={handleClose} >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Select</Offcanvas.Title>
